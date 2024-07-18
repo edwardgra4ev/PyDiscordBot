@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 from discord.ext import tasks
@@ -15,7 +16,7 @@ MEETING_TIME = datetime.time(hour=10, minute=28, second=00, tzinfo=datetime.time
 @tasks.loop(time=MEETING_TIME)
 async def notification_the_meeting():
     channel = bot.get_channel(1263053691808780360)
-    message = discord.Embed(title="Собрание отдела", description=f"@everyone\nНапоминаю собрание отдела состоится в 10:30.\n[Присоедениться к собранию]({os.environ.get('CHANNEL_URL')})", color=0x00ff00)
+    message = discord.Embed(title="Собрание отдела", description=f"@everyone\nНапоминаю собрание отдела состоится в 10:30.\n[Присоедениться к собранию]({os.environ('CHANNEL_URL')})", color=0x00ff00)
     await channel.send(embed=message)
 
 
@@ -31,5 +32,5 @@ async def on_ready():
 
 
 if __name__ == "__main__":
-    print(os.environ.get('TOKEN'))
-    bot.run(os.environ.get('TOKEN'))
+    load_dotenv()
+    bot.run(os.environ('TOKEN'))
