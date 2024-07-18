@@ -30,7 +30,7 @@ async def notification_the_shutdown():
 
 @bot.command(name="ping")
 async def ping(ctx):
-    print(await not_day_off())
+    await ctx.send("pong")
 
 async def not_day_off() -> bool:
     weekday = datetime.date.today().weekday()
