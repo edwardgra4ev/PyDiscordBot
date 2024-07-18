@@ -3,7 +3,5 @@ services:
     container_name: app
     build: .
     command: python main.py
-    volumes:
-      - ./.:/app/
     ports:
       - "3300:8000"
