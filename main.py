@@ -31,4 +31,5 @@ async def on_ready():
 
 
 if __name__ == "__main__":
+    print(os.environ.get('TOKEN'))
     bot.run(os.environ.get('TOKEN'))
