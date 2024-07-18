@@ -1,10 +1,6 @@
-FROM python:3.12
-ENV PYTHONUNBUFFERED 1
-
-RUN mkdir /discord_bot
-WORKDIR /discord_bot
-
-COPY requirements.txt /discord_bot
-COPY main.py /discord_bot
-
+FROM python:3.12.2-alpine3.19
+COPY requirements.txt /app/
+WORKDIR /app
 RUN pip install -r requirements.txt
+COPY . .
+CMD ["python3", "main.py"]

@@ -1,9 +1,5 @@
+version: "3.8"
 services:
-  discord_bot:
-    container_name: discord_bot
+  main:
     build: .
-    command: python main.py
-    volumes:
-      - /home/gra4ev/docker/discord_bot:/discord_bot/
-    ports:
-      - "3300:8000"
+    container_name: mybot
