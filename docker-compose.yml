@@ -1,5 +1,5 @@
 services:
-  bot:
+  discord_bot:
     container_name: discord_bot
     build: .
     command: python main.py
