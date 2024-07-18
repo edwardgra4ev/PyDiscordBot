@@ -1,7 +1,9 @@
 services:
   bot:
-    container_name: app
+    container_name: discord_bot
     build: .
     command: python main.py
+    volumes:
+      - ./.:/discord_bot/
     ports:
       - "3300:8000"
